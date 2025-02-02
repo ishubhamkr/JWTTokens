@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Securing APIs with JWT Tokens</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #f4f4f4; }
+        .container { max-width: 900px; margin-top: 20px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); }
+        pre { border-radius: 5px; }
+        .btn-custom { background: #007bff; color: white; border-radius: 5px; padding: 10px 20px; text-decoration: none; }
+        .header { text-align: center; padding: 20px 0; }
+        .linkedin-link { text-align: center; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Securing APIs with JWT Tokens</h1>
+            <p>A detailed guide by <strong>Shubham Kumar</strong></p>
+            <a href="https://www.linkedin.com/in/imshubhamkumar/" target="_blank" class="btn-custom">Connect on LinkedIn</a>
+        </div>
+        
+        <h2>Introduction</h2>
+        <p>APIs play a crucial role in modern applications, making their security a top priority. JSON Web Tokens (JWTs) provide a lightweight and secure method for handling authentication and data exchange.</p>
+        
+        <h2>JWT Workflow</h2>
+        <ol>
+            <li><strong>User Authentication:</strong> The user logs in, and credentials are verified.</li>
+            <li><strong>Token Generation:</strong> A JWT is issued with encoded claims.</li>
+            <li><strong>Token Transmission:</strong> The JWT is sent to the client.</li>
+            <li><strong>Token Storage:</strong> The client securely stores the JWT.</li>
+            <li><strong>Token Usage:</strong> The JWT is included in API requests.</li>
+            <li><strong>Token Verification:</strong> The server validates the JWT before processing.</li>
+        </ol>
+
+        <h2>Java Implementation</h2>
+        <pre><code class="language-java">String jwt = Jwts.builder()
+    .setSubject("username")
+    .claim("roles", "user")
+    .setIssuedAt(new Date())
+    .signWith(SignatureAlgorithm.HS256, "secretkey")
+    .compact();</code></pre>
+        
+        <h2>Maximizing API Security</h2>
+        <ul>
+            <li>Enforce HTTPS for secure communication.</li>
+            <li>Store JWTs securely in HttpOnly cookies.</li>
+            <li>Set expiration times for tokens.</li>
+            <li>Encrypt sensitive claims within JWTs.</li>
+            <li>Implement token revocation mechanisms.</li>
+        </ul>
+        
+        <h2>Incident Response</h2>
+        <p>Organizations should have an incident response plan that includes:</p>
+        <ul>
+            <li><strong>Preparation:</strong> Training teams and setting up monitoring tools.</li>
+            <li><strong>Identification:</strong> Detecting breaches using logs and alerts.</li>
+            <li><strong>Containment:</strong> Isolating affected systems.</li>
+            <li><strong>Eradication:</strong> Removing the root cause of the attack.</li>
+            <li><strong>Recovery:</strong> Restoring normal operations.</li>
+            <li><strong>Lessons Learned:</strong> Documenting the incident and improving security measures.</li>
+        </ul>
+        
+        <h2>Conclusion</h2>
+        <p>JWTs provide a robust mechanism for securing APIs, but they must be used correctly. Implementing best practices, encrypting sensitive data, and maintaining an incident response plan can significantly improve security.</p>
+
+        <div class="text-center mt-4">
+            <a href="Securing_APIs_with_JWT_Tokens.pdf" download class="btn-custom">Download PDF</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</body>
+</html>
